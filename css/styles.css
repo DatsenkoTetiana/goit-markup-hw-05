@@ -694,7 +694,7 @@ span {
     pointer-events: none;
 }
 
-.backdrop.is-hidden: .modal {
+.modal {
     position: relative;
     width: 528px;
     height: 581px;

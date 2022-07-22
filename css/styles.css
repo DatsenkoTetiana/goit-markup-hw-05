@@ -4,6 +4,10 @@ body {
     margin: 0;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -38,6 +42,7 @@ ul {
     --border-cart-color: #eeeeee;
     --btn-background-color: #188ce8;
     --border-color: #AFB1B8;
+    --animation-hover: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ul {
@@ -108,7 +113,7 @@ span {
     font-size: 14px;
     line-height: 1.1;
     letter-spacing: 0.02em;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--animation-hover);
 
     position: relative;
 }
@@ -140,7 +145,7 @@ span {
     border-radius: 2px;
     height: 4px;
     opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--animation-hover);
 }
 
 .nav-link:hover:after {
@@ -163,7 +168,7 @@ span {
     letter-spacing: 0.02em;
     text-decoration: none;
     color: var(--grey-color);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--animation-hover);
 }
 
 .contacts .contacts-item:not(:last-child) {
@@ -181,7 +186,7 @@ span {
     height: 12px;
     fill: currentColor;
     margin-right: 10px;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    transition: fill var(--animation-hover);
 }
 
 .icon-smartphone {
@@ -189,7 +194,7 @@ span {
     height: 16px;
     fill: currentColor;
     margin-right: 10px;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    transition: fill var(--animation-hover);
 }
 
 
@@ -230,6 +235,8 @@ span {
     color: var(--white-color);
 }
 
+
+
 /* buttons */
 
 .btn {
@@ -245,8 +252,8 @@ span {
     border-radius: 4px;
     background-color: var(--blue-background-color);
     color: var(--white-color);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--animation-hover),
+        color var(--animation-hover);
 }
 
 .btn:hover,
@@ -278,8 +285,8 @@ span {
     border: 1px solid transparent;
     cursor: pointer;
     border-radius: 4px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--animation-hover),
+        color var(--animation-hover), box-shadow var(--animation-hover);
 }
 
 .btns.current-btns {
@@ -439,8 +446,8 @@ span {
     align-items: center;
     justify-content: center;
     color: #AFB1B8;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--animation-hover),
+        color var(--animation-hover);
 
 }
 
@@ -470,7 +477,7 @@ span {
     justify-content: center;
     height: 92px;
     width: 170px;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color var(--animation-hover), fill var(--animation-hover);
 }
 
 .link-logo:hover,
@@ -478,16 +485,11 @@ span {
     border-color: var(--blue-background-color);
 }
 
-.link-logo:hover .icon-logo,
-.link-logo:focus .icon-logo {
-    fill: var(--blue-background-color);
 
-}
 
 .carts-logo:not(:last-child) {
     margin-right: 30px;
     border-radius: 4px;
-
 }
 
 
@@ -495,8 +497,12 @@ span {
     width: 106px;
     height: 60px;
     fill: var(--border-color);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transition: fill var(--animation-hover);
+}
 
+.link-logo:hover .icon-logo,
+.link-logo:focus .icon-logo {
+    fill: var(--blue-background-color);
 
 }
 
@@ -540,7 +546,7 @@ span {
     letter-spacing: 0.02em;
     text-decoration: none;
     color: var(--grey-color);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--animation-hover);
 }
 
 .contact-footer:hover,
@@ -601,7 +607,8 @@ span {
 
 .container-bg {
     flex-basis: calc((100% - 30px * 2) / 3);
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow var(--animation-hover), opacity var(--animation-hover),
+        transform var(--animation-hover);
 
 }
 
@@ -609,10 +616,7 @@ span {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.container-bg:hover .overlay .overlay-text {
-    transform: translateY(0);
-    opacity: 1;
-}
+
 
 .bg-img {
     display: block;
@@ -644,15 +648,10 @@ span {
     display: flex;
 }
 
-/* .container-bg:hover .overlay {
-    transform: translateY(0);
-    opacity: 1;
-} */
-
-
 .overlay {
     position: relative;
     overflow: hidden;
+    transition: transform var(--animation-hover), opacity var(--animation-hover);
 
 }
 
@@ -666,6 +665,7 @@ span {
     line-height: calc(28 / 18);
     letter-spacing: 0.03em;
     background-color: rgba(33, 150, 243, 0.9);
+    user-select: none;
 
 
 
@@ -675,13 +675,13 @@ span {
     position: absolute;
     transform: translateY(100%);
     opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--animation-hover), transform var(--animation-hover);
 }
 
 
-.overlay:hover .overlay-text {
-    /* transform: translateY(0);
-    opacity: 1; */
+.container-bg:hover .overlay .overlay-text {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* modal window */
@@ -697,6 +697,7 @@ span {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity var(--animation-hover);
 }
 
 .backdrop.is-hidden {
@@ -707,12 +708,24 @@ span {
 
 .modal {
     display: block;
-    position: relative;
+    position: absolute;
+
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 528px;
     height: 581px;
     background-color: #fff;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    opacity: 1;
+    transition: transform var(--animation-hover), opacity var(--animation-hover);
+}
+
+.backdrop.is-hidden .modal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal-btn {
